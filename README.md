@@ -135,3 +135,6 @@ Implement, at a minimum:
 2. A list of implemented and pending features.
 3. A brief explanation of the end-to-end data flow.
 4. **Assumptions and Questions**: list the assumptions you made where the specification was not explicit, and the questions you would ask the product team before taking this to production.
+
+## Solution Description
+See [Solution](docs/solution.md)
