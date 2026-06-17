@@ -31,5 +31,5 @@ yarn-error.log*
 
 read.md
 CLAUDE.md
-SOLUTION.md
-docs/
+docs/problem.md
+docs/technical-test.md
