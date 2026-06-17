@@ -1,0 +1,31 @@
+[project]
+name = "technical-test-backend"
+version = "0.1.0"
+description = "Starter backend para prueba tecnica junior fullstack."
+authors = [
+    { name = "Equipo Tecnico" },
+]
+requires-python = ">=3.11"
+dependencies = [
+    "django>=5.0,<6.0",
+    "djangorestframework>=3.15.0",
+    "django-cors-headers>=4.4.0",
+    "psycopg[binary]>=3.2.0",
+    "python-decouple>=3.8",
+    "pytest>=8.2.0",
+    "pytest-django>=4.8.0",
+]
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+dev = "python manage.py runserver 0.0.0.0:8000"
+migrate = "python manage.py migrate"
+makemigrations = "python manage.py makemigrations"
+django = "python manage.py"
+test = "pytest {args}"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
