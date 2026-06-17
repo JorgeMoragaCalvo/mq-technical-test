@@ -107,12 +107,9 @@ def reconcile(movement: BankMovement, items: list[dict]) -> list[PaymentAllocati
     """
     collection_ids = [item["collection_id"] for item in items]
 
-    # Lock affected rows for a consistent capacity check under concurrency.
+    # Lock the movement row so concurrent reconcile() calls on the same movement
+    # serialized and the capacity check below stays consistent.
     movement = BankMovement.objects.select_for_update().get(pk=movement.pk)
-    existing = {
-        alloc.collection_id: alloc
-        for alloc in movement.allocations.select_for_update()
-    }
 
     # New total = amounts in this request + previously allocated amounts to pairs
     # not present in this request.
